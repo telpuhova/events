@@ -14,7 +14,7 @@ public interface RecDao {
     List<Rec> getAll();
 
     //update
-    void update(String name, String date, String location, String description, Boolean alcohol, Boolean active, Boolean kidFriendly);
+    void update(int id,String name, String date, String location, String description, Boolean alcohol, Boolean active, Boolean kidFriendly);
 
     //delete
     void deleteById(int id);
