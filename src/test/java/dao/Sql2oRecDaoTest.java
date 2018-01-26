@@ -28,6 +28,8 @@ public class Sql2oRecDaoTest {
         conn.close();
     }
 
+    Rec setUpRec = new Rec("dodgeball", "02/01/2017", "Portland", "best game ever", true, true, false);
+
     @Test
     public void add() throws Exception {
         Rec rec = new Rec("Bike ride", "01/01/1999", "location", "blah blah blah", false, true, true);
@@ -52,4 +54,36 @@ public class Sql2oRecDaoTest {
         assertEquals(2, recDao.getAll().size());
     }
 
+    @Test
+    public void update() throws Exception {
+        Rec rec = setUpRec;
+        Rec recTwo = setUpRec;
+        recDao.add(rec);
+        recDao.add(recTwo);
+        recDao.update(recTwo.getId(),"newName", "", "", "", true, true, false);
+        assertEquals("newName", recDao.findById(recTwo.getId()).getName());
+    }
+
+    @Test
+    public void deleteById() throws Exception {
+        Rec rec = setUpRec;
+        Rec recTwo = setUpRec;
+        recDao.add(rec);
+        recDao.add(recTwo);
+        recDao.deleteById(2);
+        assertEquals(1,recDao.getAll().size());
+
+    }
+
+    @Test
+    public void clearAll() {
+        Rec rec1 = setUpRec;
+        Rec rec2 = setUpRec;
+        Rec rec3 = setUpRec;
+        recDao.add(rec1);
+        recDao.add(rec2);
+        recDao.add(rec3);
+        recDao.clearAll();
+        assertEquals(0, recDao.getAll().size());
+    }
 }

@@ -50,6 +50,7 @@ public class Sql2oRecDao implements RecDao{
         String sql = "UPDATE rec SET name = :name, date = :date, location = :location, description = :description, alcohol = :alcohol, active = :active, kidFriendly = :kidFriendly WHERE id = :id";
         try(Connection con = sql2o.open()) {
              con.createQuery(sql)
+                     .addParameter("id", id)
                     .addParameter("name", name)
                     .addParameter("date", date)
                     .addParameter("location", location)
