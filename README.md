@@ -2,7 +2,7 @@
 
 1/25/2018
 
-**By Natalia Telpukhova**
+**By Kate Trahan and Natalia Telpukhova**
 
 ## Description
 
@@ -18,4 +18,4 @@ Web application that lets the user create read update and delete different types
 Java, Spark, Postgres, Handlebars
 
 
-Copyright (c) 2018 Natalia Telpukhova
+Copyright (c) 2018 Kate Trahan and Natalia Telpukhova
